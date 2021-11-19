@@ -12,8 +12,11 @@ import time
 
 class Instegram():
     index = 0
+    ###Script to like all photoes of someone by name
+    ###can swap multi accoutnts and scrol and like and add by name
+    ### can add followers by fake accounts logiin and liking someone page 
 
-    def __init__(self, username, pw,path):
+    def __init__(self, username, pw,path): ##exalmple Username:Dima4560 Password:1234567 Path:https:/www.instagram.com/
         option = Options()
         option.add_argument("--disable-infobars")
         option.add_argument("start-maximized")
@@ -31,7 +34,7 @@ class Instegram():
 
 
 
-    def run_web(self):
+    def run_web(self):##Finding the DNS of instegram
         driver=self.driver_that_running
         wait = WebDriverWait(driver, 5)
         run_web=driver.get(self.path)
@@ -52,7 +55,7 @@ class Instegram():
             move_front=driver.find_element_by_xpath("/html/body/div[1]/section/main/div/div/div/div/button").click()
 
 
-    def find_by_name(self,name):
+    def find_by_name(self,name): #####finding element by name....
         self.run_web()
         driver=self.driver_that_running
         wait = WebDriverWait(driver, 5)
@@ -130,9 +133,6 @@ class Instegram():
             self.like_all_pictures(name)
             self.log_out()
             self.index+=1
-
-
-
 
     def is_element_exist_by_XPATH(self, text):
         browser = self.driver_that_running
